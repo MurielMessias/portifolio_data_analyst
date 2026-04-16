@@ -23,11 +23,13 @@ jobs:
       - name: Install dependencies
         run: npm install
       - name: Build
-        run: npm run build
+        run: npm run build # AQUI É ONDE ELE GERA A DIST QUE VOCÊ VIU
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: './dist'
+          path: './dist' # ELE VAI PEGAR A PASTA DIST
 
   deploy:
     needs: build
