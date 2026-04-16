@@ -178,19 +178,19 @@ export default function Projects() {
               <pre className="bg-gray-900 text-green-300 rounded p-3 text-xs overflow-x-auto">
 {`# Ranking de Setores\nBase_Dados['Industry'].value_counts()\n\n# Visualização Gráfica\nplt.figure(figsize=(15,8))\nplt.title('Análise por Setor')\nsns.countplot(data=Base_Dados, x='Industry', order=Base_Dados['Industry'].value_counts().index)\nplt.xticks(rotation=45)`}
               </pre>
-              <img src="analise%20setores.png" alt="Análise de Setores" className="my-4 rounded shadow-lg" />
+              <img src="/analise%20setores.png" alt="Análise de Setores" className="my-4 rounded shadow-lg" />
               <p><b>Análise :</b> A saída confirmou que o setor <span className="text-cyan-700 font-semibold">Fintech</span> domina o mercado com <b>224 empresas</b>, seguido por <b>Internet software & services (192)</b>. Isso demonstra que a tese de investimento global está pesadamente concentrada em escalabilidade digital e serviços financeiros.</p>
               <h2 className="text-lg font-semibold mt-4 mb-1">5. Concentração Geográfica e Market Share</h2>
               <pre className="bg-gray-900 text-green-300 rounded p-3 text-xs overflow-x-auto">
 {`# Percentual por País (Top 10)\nAnalise_Pais = Base_Dados['Country'].value_counts(normalize=True) * 100\nprint(Analise_Pais.head(10))\n\n# Gráfico de Barras - Top 10\nplt.figure(figsize=(15,8))\nplt.title('Top 10 Países Geradores de Unicórnios')\nplt.bar(Base_Dados['Country'].value_counts().index[:10], Base_Dados['Country'].value_counts()[:10])\nplt.xticks(rotation=45)`}
               </pre>
-              <img src="analise%20paises.png" alt="Análise de Países" className="my-4 rounded shadow-lg" />
+              <img src="/analise%20paises.png" alt="Análise de Países" className="my-4 rounded shadow-lg" />
               <p><b>Análise :</b> Os <span className="text-cyan-700 font-semibold">Estados Unidos</span> detêm <b>46,2%</b> do mercado global de unicórnios, seguidos pela <b>China com 14,4%</b>. Um ponto interessante é o <b>Brasil</b> aparecendo no Top 10, o que evidencia a força do ecossistema latino-americano, apesar da dominância das potências globais.</p>
               <h2 className="text-lg font-semibold mt-4 mb-1">6. Evolução de Valuation (Série Temporal)</h2>
               <pre className="bg-gray-900 text-green-300 rounded p-3 text-xs overflow-x-auto">
 {`# Conversão para Datetime e extração de Ano/Mês\nBase_Dados['Data de Adesão'] = pd.to_datetime(Base_Dados['Date Joined'])\nBase_Dados['Ano'] = Base_Dados['Data de Adesão'].dt.year\n\n# Plotagem da evolução\nplt.figure(figsize=(15,8))\nplt.title('Evolução do Valuation ao Longo dos Anos')\nsns.scatterplot(data=Base_Dados, x='Data de Adesão', y='Valuation ($B)', hue='Industry')`}
               </pre>
-              <img src="analise%20valores.png" alt="Análise de Valores" className="my-4 rounded shadow-lg" />
+              <img src="/analise%20valores.png" alt="Análise de Valores" className="my-4 rounded shadow-lg" />
               <p><b>Análise :</b> Os dados mostram um pico de novos unicórnios entre <b>2021 e 2022</b>. A análise de dispersão revela que, embora o volume tenha aumentado, os valuations astronômicos (acima de $50B) são raros e extremamente concentrados, com empresas como <b>ByteDance e SpaceX</b> distorcendo a média superior.</p>
               <h2 className="text-lg font-semibold mt-4 mb-1">7. Conclusão Técnica</h2>
               <ul className="list-disc ml-6">
@@ -226,19 +226,19 @@ export default function Projects() {
               <pre className="bg-gray-900 text-green-300 rounded p-3 text-xs overflow-x-auto">
 {`# Boxplot de Notas de Matemática por Gênero\nsns.boxplot(data=Base_dados, x='math score', y='gender')`}
               </pre>
-              <img src="gendermath.png" alt="Boxplot math score por gênero" className="my-4 rounded shadow-lg" />
+              <img src="/gendermath.png" alt="Boxplot math score por gênero" className="my-4 rounded shadow-lg" />
               <p><b>Insight:</b> Embora as médias sejam próximas, o grupo masculino tende a ter uma performance ligeiramente superior em Matemática, enquanto o grupo feminino apresenta maior consistência com menos outliers negativos extremados.</p>
               <h3 className="text-base font-semibold mt-3 mb-1">B. Impacto da Escolaridade dos Pais</h3>
               <pre className="bg-gray-900 text-green-300 rounded p-3 text-xs overflow-x-auto">
 {`# Agrupamento por Escolaridade dos Pais\nBase_dados.groupby(by=['parental level of education']).describe()['math score']`}
               </pre>
-              <img src="mathparenthalleveleducation.png" alt="Boxplot math score por escolaridade dos pais" className="my-4 rounded shadow-lg" />
+              <img src="/mathparenthalleveleducation.png" alt="Boxplot math score por escolaridade dos pais" className="my-4 rounded shadow-lg" />
               <p><b>Insight:</b> Estudantes cujos pais possuem mestrado apresentam as maiores médias em todas as disciplinas, indicando que o ambiente educacional familiar é um forte preditor de sucesso acadêmico.</p>
               <h3 className="text-base font-semibold mt-3 mb-1">C. Eficácia do Curso Preparatório</h3>
               <pre className="bg-gray-900 text-green-300 rounded p-3 text-xs overflow-x-auto">
 {`# Comparação visual entre quem fez e quem não fez o curso\nsns.scatterplot(data=Base_dados, x='math score', y='writing score', hue='test preparation course')`}
               </pre>
-              <img src="mathreadingscoregenderscatterplot.png" alt="Pairplot desempenho por curso preparatório" className="my-4 rounded shadow-lg" />
+              <img src="/mathreadingscoregenderscatterplot.png" alt="Pairplot desempenho por curso preparatório" className="my-4 rounded shadow-lg" />
               <p><b>Insight:</b> Estudantes que completaram o curso preparatório estão concentrados na parte superior direita do gráfico, comprovando que o curso aumenta significativamente a probabilidade de notas altas tanto em Matemática quanto em Escrita.</p>
             </div>
           )}
