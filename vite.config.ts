@@ -1,0 +1,11 @@
+import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
+
+export default defineConfig({
+  plugins: [react()],
+  // Nome exato do seu repositório no GitHub
+  base: '/portifolio_data_analyst/',
+  build: {
+    emptyOutDir: true,
+  }
+});
